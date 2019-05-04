@@ -16,12 +16,12 @@
       <option value="">Select area</option>
     </select>
     <br />
-    <select name="state" id="state" class="form-control input-lg">
-      <option value="">Select state</option>
+    <select name="direction" id="direction" class="form-control input-lg">
+      <option value="">Select direction</option>
     </select>
     <br />
-    <select name="city" id="city" class="form-control input-lg">
-      <option value="">Select city</option>
+    <select name="type" id="type" class="form-control input-lg">
+      <option value="">Select type</option>
     </select>
   </div>
 </body>
@@ -56,19 +56,19 @@
     $(document).on('change', '#area', function() {
       var area_id = $(this).val();
       if (area_id != '') {
-        load_json_data('state', area_id);
-        $('#city').html('<option value="">Select city</option>');
+        load_json_data('direction', area_id);
+        $('#type').html('<option value="">Select type</option>');
       } else {
-        $('#state').html('<option value="">Select state</option>');
-        $('#city').html('<option value="">Select city</option>');
+        $('#direction').html('<option value="">Select direction</option>');
+        $('#type').html('<option value="">Select type</option>');
       }
     });
-    $(document).on('change', '#state', function() {
-      var state_id = $(this).val();
-      if (state_id != '') {
-        load_json_data('city', state_id);
+    $(document).on('change', '#direction', function() {
+      var direction_id = $(this).val();
+      if (direction_id != '') {
+        load_json_data('type', direction_id);
       } else {
-        $('#city').html('<option value="">Select city</option>');
+        $('#type').html('<option value="">Select type</option>');
       }
     });
   });
