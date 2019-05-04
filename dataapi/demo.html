@@ -57,6 +57,7 @@
       var country_id = $(this).val();
       if (country_id != '') {
         load_json_data('state', country_id);
+        $('#city').html('<option value="">Select city</option>');
       } else {
         $('#state').html('<option value="">Select state</option>');
         $('#city').html('<option value="">Select city</option>');
