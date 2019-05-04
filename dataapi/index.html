@@ -73,6 +73,7 @@
       var direction_id = $(this).val();
       if (direction_id != '') {
         load_json_data('type', direction_id);
+        $('#version').html('<option value="">Select version</option>');
       } else {
         $('#type').html('<option value="">Select type</option>');
         $('#version').html('<option value="">Select version</option>');
