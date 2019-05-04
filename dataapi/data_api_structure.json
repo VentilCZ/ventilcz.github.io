@@ -12,8 +12,8 @@
     "id": "3",
     "name": "Smart Billing",
     "parent_id": "0"
-  },
-	{
+	},
+  {
     "id": "other",
     "name": "other data entities",
     "parent_id": "0"
