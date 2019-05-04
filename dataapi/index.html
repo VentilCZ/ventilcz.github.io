@@ -11,7 +11,7 @@
 <body>
   <br /><br />
   <div class="container" style="width:600px;">
-    <h2 align="center">Tieto ServiceNow Data API documentation</h2><br /><br />
+    <h2 align="center">Tieto ServiceNow<br />Data API documentation</h2><br /><br />
     <select name="area" id="area" class="form-control input-lg">
       <option value="">Select area</option>
     </select>
@@ -22,6 +22,9 @@
     <br />
     <select name="type" id="type" class="form-control input-lg">
       <option value="">Select type</option>
+    </select>
+    <select name="version" id="version" class="form-control input-lg">
+      <option value="">Select version</option>
     </select>
   </div>
 </body>
@@ -69,6 +72,14 @@
         load_json_data('type', direction_id);
       } else {
         $('#type').html('<option value="">Select type</option>');
+      }
+    });
+    $(document).on('change', '#type', function() {
+      var type = $(this).val();
+      if (type_id != '') {
+        load_json_data('version', type_id);
+      } else {
+        $('#version').html('<option value="">Select version</option>');
       }
     });
   });

@@ -207,5 +207,267 @@
     "id": "Service-CI_Associations",
     "name": "Service-CI Associations",
     "parent_id": "other_out"
+  },
+  {
+    "id": "N_A",
+    "name": "N/A (??? - Not supported)",
+    "parent_id": "Airwatch"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "Application"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Retirement)",
+    "parent_id": "Application"
+  },
+  {},
+  {
+    "id": "1_2",
+    "name": "1.2 (Release)",
+    "parent_id": "Application"
+  },
+  {
+    "id": "N_A",
+    "name": "N/A (??? - Not supported)",
+    "parent_id": "jamfpro"
+  },
+  {
+    "id": "N_A",
+    "name": "N/A (??? - Not supported)",
+    "parent_id": "mobileiron"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Production)",
+    "parent_id": "Service_Offering"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Release)",
+    "parent_id": "Service_Offering"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Production)",
+    "parent_id": "ServiceNow_Billable_Service"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Release)",
+    "parent_id": "ServiceNow_Billable_Service"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "TCS_Group"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Production)",
+    "parent_id": "TCS_Group"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "TCS_Linux_Server"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Production)",
+    "parent_id": "TCS_Linux_Server"
+  },
+  {
+    "id": "1_2",
+    "name": "1.2 (Production)",
+    "parent_id": "TCS_Linux_Server"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "TCS_VMware_VMI"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Production)",
+    "parent_id": "TCS_VMware_VMI"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "TCS_Windows_Server"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Production)",
+    "parent_id": "TCS_Windows_Server"
+  },
+  {},
+  {
+    "id": "1_2",
+    "name": "1.2 (Production)",
+    "parent_id": "TCS_Windows_Server"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Production)",
+    "parent_id": "Tieto_App_Server"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Production)",
+    "parent_id": "Tieto_Middleware"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "Applications"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Applications"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "Business_Services"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Business_Services"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Clusters_and_Pools"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Data_Center_Devices"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "Databases"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Databases"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "End_User_Devices"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "End_User_Devices"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Networks"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "Servers"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Retirement)",
+    "parent_id": "Servers"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Servers"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Service_Subscriptions"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Storages"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Production)",
+    "parent_id": "SB_Extended_attribute"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Production)",
+    "parent_id": "SB_Extended_attribute"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Production)",
+    "parent_id": "SB_Product_Item_Allocation"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Production)",
+    "parent_id": "SB_Product_Item_Allocation"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Release)",
+    "parent_id": "SB_Extended_Attributes"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Release)",
+    "parent_id": "SB_Product_Item_Allocations"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Production)",
+    "parent_id": "CI_Relationship"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Production)",
+    "parent_id": "CI_Relationship"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Production)",
+    "parent_id": "KB_Relationship"
+  },
+  {
+    "id": "1_1",
+    "name": "1.1 (Production)",
+    "parent_id": "KB_Relationship"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Release)",
+    "parent_id": "Tieto_Server_Monitoring"
+  },
+  {
+    "id": "1_0",
+    "name": "1.0 (Retirement)",
+    "parent_id": "Relationships"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Relationships"
+  },
+  {
+    "id": "2_0",
+    "name": "2.0 (Production)",
+    "parent_id": "Service-CI_Associations"
   }
 ]
