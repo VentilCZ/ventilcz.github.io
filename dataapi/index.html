@@ -62,9 +62,11 @@
       if (area_id != '') {
         load_json_data('direction', area_id);
         $('#type').html('<option value="">Select type</option>');
+        $('#version').html('<option value="">Select version</option>');
       } else {
         $('#direction').html('<option value="">Select direction</option>');
         $('#type').html('<option value="">Select type</option>');
+        $('#version').html('<option value="">Select version</option>');
       }
     });
     $(document).on('change', '#direction', function() {
@@ -73,6 +75,7 @@
         load_json_data('type', direction_id);
       } else {
         $('#type').html('<option value="">Select type</option>');
+        $('#version').html('<option value="">Select version</option>');
       }
     });
     $(document).on('change', '#type', function() {
