@@ -19,123 +19,193 @@
     "parent_id": "0"
   },
   {
-    "id": "4",
-    "name": "New York",
+    "id": "cmdb_in",
+    "name": "Inbound (providing/writing data to Tieto ServiceNow)",
     "parent_id": "cmdb"
   },
   {
-    "id": "5",
-    "name": "Alabama",
+    "id": "cmdb_out",
+    "name": "Outbound (gathering/reading data from Tieto ServiceNow)",
     "parent_id": "cmdb"
   },
   {
-    "id": "6",
-    "name": "California",
-    "parent_id": "cmdb"
-  },
-  {
-    "id": "7",
-    "name": "Ontario",
+    "id": "fd_none",
+    "name": "N/A (this area is in design phase)",
     "parent_id": "fd"
   },
   {
-    "id": "8",
-    "name": "British Columbia",
-    "parent_id": "fd"
-  },
-  {
-    "id": "9",
-    "name": "New South Wales",
+    "id": "sb_in",
+    "name": "Inbound (providing/writing data to Tieto ServiceNow)",
     "parent_id": "sb"
   },
   {
-    "id": "10",
-    "name": "Queensland",
+    "id": "sb_out",
+    "name": "Outbound (gathering/reading data from Tieto ServiceNow)",
     "parent_id": "sb"
   },
   {
-    "id": "11",
-    "name": "New York city",
-    "parent_id": "4"
+    "id": "other_in",
+    "name": "Inbound (providing/writing data to Tieto ServiceNow)",
+    "parent_id": "other"
   },
   {
-    "id": "12",
-    "name": "Buffalo",
-    "parent_id": "4"
+    "id": "other_out",
+    "name": "Outbound (gathering/reading data from Tieto ServiceNow)",
+    "parent_id": "other"
   },
   {
-    "id": "13",
-    "name": "Albany",
-    "parent_id": "4"
+    "id": "Airwatch",
+    "name": "Airwatch",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "14",
-    "name": "Birmingham",
-    "parent_id": "5"
+    "id": "Application",
+    "name": "Application",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "15",
-    "name": "Montgomery",
-    "parent_id": "5"
+    "id": "jamfpro",
+    "name": "jamfpro",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "16",
-    "name": "Huntsville",
-    "parent_id": "5"
+    "id": "mobileiron",
+    "name": "mobileiron",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "17",
-    "name": "Los Angeles",
-    "parent_id": "6"
+    "id": "Service_Offering",
+    "name": "Service Offering",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "18",
-    "name": "San Francisco",
-    "parent_id": "6"
+    "id": "ServiceNow_Billable_Service",
+    "name": "ServiceNow Billable Service",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "19",
-    "name": "San Diego",
-    "parent_id": "6"
+    "id": "TCS_Group",
+    "name": "TCS Group",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "20",
-    "name": "Toronto",
-    "parent_id": "7"
+    "id": "TCS_Linux_Server",
+    "name": "TCS Linux Server",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "21",
-    "name": "Ottawa",
-    "parent_id": "7"
+    "id": "TCS_VMware_VMI",
+    "name": "TCS VMware VMI",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "22",
-    "name": "Vancouver",
-    "parent_id": "8"
+    "id": "TCS_Windows_Server",
+    "name": "TCS Windows Server",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "23",
-    "name": "Victoria",
-    "parent_id": "8"
+    "id": "Tieto_App_Server",
+    "name": "Tieto App Server",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "24",
-    "name": "Sydney",
-    "parent_id": "9"
+    "id": "Tieto_Middleware",
+    "name": "Tieto Middleware",
+    "parent_id": "cmdb_in"
   },
   {
-    "id": "25",
-    "name": "Newcastle",
-    "parent_id": "9"
+    "id": "Applications",
+    "name": "Applications",
+    "parent_id": "cmdb_out"
   },
   {
-    "id": "26",
-    "name": "City of Brisbane",
-    "parent_id": "10"
+    "id": "Business_Services",
+    "name": "Business Services",
+    "parent_id": "cmdb_out"
   },
   {
-    "id": "27",
-    "name": "Gold Coast",
-    "parent_id": "10"
+    "id": "Clusters_and_Pools",
+    "name": "Clusters and Pools",
+    "parent_id": "cmdb_out"
+  },
+  {
+    "id": "Data_Center_Devices",
+    "name": "Data Center Devices",
+    "parent_id": "cmdb_out"
+  },
+  {
+    "id": "Databases",
+    "name": "Databases",
+    "parent_id": "cmdb_out"
+  },
+  {
+    "id": "End_User_Devices",
+    "name": "End User Devices",
+    "parent_id": "cmdb_out"
+  },
+  {
+    "id": "Networks",
+    "name": "Networks",
+    "parent_id": "cmdb_out"
+  },
+  {
+    "id": "Servers",
+    "name": "Servers",
+    "parent_id": "cmdb_out"
+  },
+  {
+    "id": "Service_Subscriptions",
+    "name": "Service Subscriptions",
+    "parent_id": "cmdb_out"
+  },
+  {
+    "id": "Storages",
+    "name": "Storages",
+    "parent_id": "cmdb_out"
+  },
+  {
+    "id": "SB_Extended_attribute",
+    "name": "SB Extended attribute",
+    "parent_id": "sb_in"
+  },
+  {
+    "id": "SB_Product_Item_Allocation",
+    "name": "SB Product Item Allocation",
+    "parent_id": "sb_in"
+  },
+  {
+    "id": "SB_Extended_Attributes",
+    "name": "SB Extended Attributes",
+    "parent_id": "sb_out"
+  },
+  {
+    "id": "SB_Product_Item_Allocations",
+    "name": "SB Product Item Allocations",
+    "parent_id": "sb_out"
+  },
+  {
+    "id": "CI_Relationship",
+    "name": "CI Relationship",
+    "parent_id": "other_in"
+  },
+  {
+    "id": "KB_Relationship",
+    "name": "KB Relationship",
+    "parent_id": "other_in"
+  },
+  {
+    "id": "Tieto_Server_Monitoring",
+    "name": "Tieto Server Monitoring",
+    "parent_id": "other_in"
+  },
+  {
+    "id": "Relationships",
+    "name": "Relationships",
+    "parent_id": "other_out"
+  },
+  {
+    "id": "Service-CI_Associations",
+    "name": "Service-CI Associations",
+    "parent_id": "other_out"
   }
 ]
