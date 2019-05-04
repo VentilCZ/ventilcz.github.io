@@ -76,7 +76,7 @@
       }
     });
     $(document).on('change', '#type', function() {
-      var type = $(this).val();
+      var type_id = $(this).val();
       if (type_id != '') {
         load_json_data('version', type_id);
       } else {
