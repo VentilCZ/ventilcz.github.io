@@ -1,18 +1,23 @@
 [{
     "id": "1",
-    "name": "USA",
+    "name": "CMDB",
     "parent_id": "0"
   },
   {
     "id": "2",
-    "name": "Canada",
+    "name": "Foundation Data",
     "parent_id": "0"
   },
   {
     "id": "3",
-    "name": "Australia",
+    "name": "Smart Billing",
     "parent_id": "0"
   },
+	{
+		"id": "other",
+		"name": "other data entities",
+		"parent_id": "0"
+	}
   {
     "id": "4",
     "name": "New York",
