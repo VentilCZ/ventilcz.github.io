@@ -5,7 +5,7 @@
   },
   {
     "id": "fd",
-    "name": "Foundation Data",
+    "name": "Foundation Data (not available yet)",
     "parent_id": "0"
   },
   {
@@ -27,11 +27,6 @@
     "id": "cmdb_out",
     "name": "Outbound (gathering/reading data from Tieto ServiceNow)",
     "parent_id": "cmdb"
-  },
-  {
-    "id": "fd_none",
-    "name": "N/A (this area is in design phase)",
-    "parent_id": "fd"
   },
   {
     "id": "sb_in",
