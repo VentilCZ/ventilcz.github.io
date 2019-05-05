@@ -1,90 +1,65 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-  <title>Data API documentation</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-</head>
-
-<body>
-  <br /><br />
-  <div class="container" style="width:600px;">
-    <h2 align="center">Tieto ServiceNow<br />Data API documentation</h2><br /><br />
-    <select name="area" id="area" class="form-control input-lg">
-      <option value="">Select area</option>
-    </select>
-    <br />
-    <select name="direction" id="direction" class="form-control input-lg">
-      <option value="">Select direction</option>
-    </select>
-    <br />
-    <select name="type" id="type" class="form-control input-lg">
-      <option value="">Select type</option>
-    </select>
-    <br />
-    <select name="version" id="version" class="form-control input-lg">
-      <option value="">Select version</option>
-    </select>
-  </div>
-</body>
-
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My blog</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div id="header">
+      <div class="container">
+        <a id="header-title" href="index.html">My Blog</a>
+        <ul id="header-nav">
+          <li><a href="about.html">About</a></li>
+          <li><a href="mailto:joe@example.com?subject=Feedback">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content">
+      <div class="post-container">
+        <div class="post">
+          <div class="post-author">
+            <img src="anonymous.png">
+            <span>Somebody</span>
+          </div>
+          <p class="post-date">23.12.2018</p>
+          <h3 class="post-title">Random author</h3>
+          <div class="post-content">
+            <p>Gold challenge post.</p>
+            <p>Just sample additional text.</p>
+          </div>
+        </div>
+      </div>
+      <div class="post-container">
+        <div class="post">
+          <div class="post-author">
+            <img src="ventil_avatar-square.jpg">
+            <span>Me</span>
+          </div>
+          <p class="post-date">23.12.2018</p>
+          <h3 class="post-title">Becoming a web developer</h3>
+          <div class="post-content">
+            <p>If somebody would have told me a week ago that I would be able to make a <strong>website</strong>, I would not have believed them.</p>
+            <p>Just few days later, I came across <a href="https://getmimo.com">Mimo</a> and started to work on a <em>real</em> blog.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="container">
+        <div class="column">
+          <h4>My Links</h4>
+          <p>
+            <a href="https://twitter.com/ventilCZ">Twitter</a>
+            <br>
+            <a href="https://facebook.com/ventilCZ">Facebook</a>
+          </p>
+        </div>
+        <div class="column">
+          <h4>My Story</h4>
+          <p>Hi there! I'm an aspiring web developer.</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
-<script>
-  $(document).ready(function() {
-
-    load_json_data('area');
-
-    function load_json_data(id, parent_id) {
-      var html_code = '';
-      $.getJSON('data_api_structure.json', function(data) {
-
-        html_code += '<option value="">Select ' + id + '</option>';
-        $.each(data, function(key, value) {
-          if (id == 'area') {
-            if (value.parent_id == '0') {
-              html_code += '<option value="' + value.id + '">' + value.name + '</option>';
-            }
-          } else {
-            if (value.parent_id == parent_id) {
-              html_code += '<option value="' + value.id + '">' + value.name + '</option>';
-            }
-          }
-        });
-        $('#' + id).html(html_code);
-      });
-
-    }
-
-    $(document).on('change', '#area', function() {
-      var area_id = $(this).val();
-      if (area_id != '') {
-        load_json_data('direction', area_id);
-        $('#type').html('<option value="">Select type</option>');
-        $('#version').html('<option value="">Select version</option>');
-      } else {
-        $('#direction').html('<option value="">Select direction</option>');
-        $('#type').html('<option value="">Select type</option>');
-        $('#version').html('<option value="">Select version</option>');
-      }
-    });
-    $(document).on('change', '#direction', function() {
-      var direction_id = $(this).val();
-      if (direction_id != '') {
-        load_json_data('type', direction_id);
-      } else {
-        $('#type').html('<option value="">Select type</option>');
-        $('#version').html('<option value="">Select version</option>');
-      }
-    });
-    $(document).on('change', '#type', function() {
-      var type_id = $(this).val();
-      if (type_id != '') {
-        load_json_data('version', type_id);
-      } else {
-        $('#version').html('<option value="">Select version</option>');
-      }
-    });
-  });
-</script>
