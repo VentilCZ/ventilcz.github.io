@@ -1,9 +1,9 @@
 <div>
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#info">Basic info</a></li>
-    <li><a data-toggle="tab" href="#soap">SOAP</a></li>
-    <li><a data-toggle="tab" href="#rest">REST</a></li>
-    <li><a data-toggle="tab" href="#attr">Input attributes</a></li>
+    <li><a data-toggle="tab" href="#api">SOAP &amp; REST definitions</a></li>
+    <li><a data-toggle="tab" href="#input">Input parameters</a></li>
+    <li><a data-toggle="tab" href="#output">Output parameters</a></li>
   </ul>
 
   <div class="tab-content">
@@ -40,7 +40,31 @@
         </tr>
       </table>
     </div>
-   <div id="soap" class="tab-pane fade">
+    <div id="api" class="tab-pane fade">
+      <table class="table">
+        <tr>
+          <th class="span2">SOAP WSDL:</th>
+          <td class="span2">https://&lt;service-now-instance.com&gt;/CMDBInboundAPI.do?WSDL</td>
+        </tr>
+        <tr>
+          <th class="span2">SOAP EndPoint:</th>
+          <td class="span2">https://&lt;service-now-instance.com&gt;/CMDBInboundAPI.do?SOAP</td>
+        </tr>
+        <tr>
+          <th class="span2">REST EndPoint:</th>
+          <td class="span2">https://&lt;service-now-instance.com&gt;/api/tieoy/cmdbinboundapi</td>
+        </tr>
+        <tr>
+          <th class="span2">Resource name:</th>
+          <td class="span2">execute</td>
+        </tr>
+        <tr>
+          <th class="span2">HTTP method:</th>
+          <td class="span2">POST</td>
+        </tr>
+      </table>
+    </div>
+    <div id="input" class="tab-pane fade">
      <div class="row">
        <div class="col-lg-6 text-right">
          <h4>Valid since:</h4>
@@ -50,12 +74,8 @@
        </div>
      </div>
    </div>
-   <div id="rest" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-   </div>
-   <div id="attr" class="tab-pane fade">
-    <h3>Menu 3</h3>
+   <div id="output" class="tab-pane fade">
+    <h3>Menu 4</h3>
     <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
    </div>
   </div>
