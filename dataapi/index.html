@@ -66,12 +66,12 @@
         load_json_data('direction', area_id);
         $('#type').html('<option value="">Select type</option>');
         $('#version').html('<option value="">Select version</option>');
-        $('#content').html('');
+        $('#content').empty();
       } else {
         $('#direction').html('<option value="">Select direction</option>');
         $('#type').html('<option value="">Select type</option>');
         $('#version').html('<option value="">Select version</option>');
-        $('#content').html('');
+        $('#content').empty();
       }
     });
     $(document).on('change', '#direction', function() {
@@ -79,29 +79,29 @@
       if (direction_id != '') {
         load_json_data('type', direction_id);
         $('#version').html('<option value="">Select version</option>');
-        $('#content').html('');
+        $('#content').empty();
       } else {
         $('#type').html('<option value="">Select type</option>');
         $('#version').html('<option value="">Select version</option>');
-        $('#content').html('');
+        $('#content').empty();
       }
     });
     $(document).on('change', '#type', function() {
       var type_id = $(this).val();
       if (type_id != '') {
         load_json_data('version', type_id);
-        $('#content').html('');
+        $('#content').empty();
       } else {
         $('#version').html('<option value="">Select version</option>');
-        $('#content').html('');
+        $('#content').empty();
       }
     });
     $(document).on('change', '#version', function() {
       var version_id = $(this).val();
-      if (version_id != 'ServiceNow_Billable_Service_1_1') {
-        $('#content').html('<h3>Select another option</h3>');
-      } else {
+      if (version_id == 'ServiceNow_Billable_Service_1_1') {
         $('#content').load(version_id+'.html');
+      } else {
+        $('#content').empty();
       }
     });
   });
