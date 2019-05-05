@@ -66,10 +66,12 @@
         load_json_data('direction', area_id);
         $('#type').html('<option value="">Select type</option>');
         $('#version').html('<option value="">Select version</option>');
+        $('#content').html('');
       } else {
         $('#direction').html('<option value="">Select direction</option>');
         $('#type').html('<option value="">Select type</option>');
         $('#version').html('<option value="">Select version</option>');
+        $('#content').html('');
       }
     });
     $(document).on('change', '#direction', function() {
@@ -77,17 +79,21 @@
       if (direction_id != '') {
         load_json_data('type', direction_id);
         $('#version').html('<option value="">Select version</option>');
+        $('#content').html('');
       } else {
         $('#type').html('<option value="">Select type</option>');
         $('#version').html('<option value="">Select version</option>');
+        $('#content').html('');
       }
     });
     $(document).on('change', '#type', function() {
       var type_id = $(this).val();
       if (type_id != '') {
         load_json_data('version', type_id);
+        $('#content').html('');
       } else {
         $('#version').html('<option value="">Select version</option>');
+        $('#content').html('');
       }
     });
     $(document).on('change', '#version', function() {
