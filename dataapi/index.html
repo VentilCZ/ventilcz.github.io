@@ -98,7 +98,7 @@
     });
     $(document).on('change', '#version', function() {
       var version_id = $(this).val();
-      if (version_id == 'ServiceNow_Billable_Service_1_1') {
+      if (version_id != '') {
         $('#content').load(version_id+'.html');
       } else {
         $('#content').empty();
