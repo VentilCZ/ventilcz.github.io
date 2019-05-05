@@ -91,5 +91,5 @@
   {"id": "1_0", "name": "1.0 (production)", "parent_id": "SB_Product_Item_Allocation"},
   {"id": "1_1", "name": "1.1 (production)", "parent_id": "SB_Product_Item_Allocation"},
   {"id": "2_0", "name": "2.0 (release)", "parent_id": "SB_Extended_Attributes"},
-  {"id": "2_0", "name": "2.0 (release)", "parent_id": "SB_Product_Item_Allocations"},
+  {"id": "2_0", "name": "2.0 (release)", "parent_id": "SB_Product_Item_Allocations"}
 ]
