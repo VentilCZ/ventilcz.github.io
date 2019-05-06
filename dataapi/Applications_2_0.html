@@ -30,18 +30,6 @@
           <td class="span2"/>
         </tr>
         <tr>
-          <th class="span2">Authorized data source:</th>
-          <td class="span2"/>
-          <th class="span2">Contact person:</th>
-          <td class="span2">Till Lukáš</td>
-        </tr>
-        <tr>
-          <th class="span2">Classification:</th>
-          <td class="span2"/>
-          <th class="span2">Allowed operations:</th>
-          <td class="span2">Create &amp; update</td>
-        </tr>
-        <tr>
           <th class="span2">Change log:</th>
           <td colspan="4">Information about Applications, running Middleware softwares, Application &amp; Web Servers etc.</td>
         </tr>
@@ -78,51 +66,43 @@
             <th>Parameter</th>
             <th>Mandatory</th>
             <th>Purpose</th>
-            <th>Target attribute</th>
-            <th>Attribute type</th>
             <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>type</td>
+            <td>true</td>
+            <td colspan="2">provide value: "Applications"</td>
           </tr>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>version</td>
+            <td>true</td>
+            <td colspan="2">provide value: "2.0"</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>modified_after</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Modified after timestamp</td>
+            <td>DateTime in format YYYY-MM-DD HH:MM:SS to gather records modified after this timestap</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>records</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Records</td>
+            <td>Comma separated list of SysIDs</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>range</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Range</td>
+            <td>Two comma separated numbers defining the range of returned records</td>
+          </tr>
+          <tr>
+            <td>query</td>
+            <td>false</td>
+            <td>Additional filter condition</td>
+            <td>Encoded query without 2<sup>nd</sup> level condition (^NQ string)</td>
           </tr>
         </tbody>
       </table>
@@ -131,51 +111,252 @@
       <table class="table table-bordered table-condensed table-hover table-striped">
         <thead>
           <tr>
-            <th>Parameter</th>
+            <th>Attribute label</th>
+            <th>Attribute name</th>
+            <th>Attribute type</th>
             <th>Purpose</th>
-            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>classification</td>
-            <td>CI's Classification</td>
-            <td>Classification of created/updated CI</td>
+            <td>Asset tag</td>
+            <td>asset_tag</td>
+            <td>String (40)</td>
+            <td>Unique key labeled into the device – customer specific, and unique within one customer only</td>
           </tr>
           <tr>
-            <td>status</td>
-            <td>Status</td>
-            <td>Result of the operation</td>
+            <td>Billable</td>
+            <td>u_billable</td>
+            <td>True/False</td>
+            <td>Flag for Smart Billing customer invoicing (entify whether CI is billable to customer or not)</td>
           </tr>
           <tr>
-            <td>sys_id</td>
-            <td>SysID</td>
-            <td>Unique ID of created/updated record</td>
+            <td>CI number</td>
+            <td>u_number</td>
+            <td>String (40)</td>
+            <td>Public unique identifier of each record in CMDB</td>
           </tr>
           <tr>
+            <td>Classification</td>
+            <td>u_subclass</td>
+            <td>Reference (CI Classification)</td>
+            <td>CMDB logical model CI type which is mapped to particular CI Class used in actual CMDB physical model</td>
+          </tr>
+          <tr>
+            <td>Company</td>
+            <td>company</td>
+            <td>Reference (Company)</td>
+            <td>The Company to whom the CI is assigned to. Companies describe an organizational hierarchy of customer/vendor to a level of detail seen necessary for IT service management purposes.</td>
+          </tr>
+          <tr>
+            <td>Correlation ID</td>
+            <td>correlation_id</td>
+            <td>String (512)</td>
+            <td>External ID of the CI used in the external primary data source provider</td>
+          </tr>
+          <tr>
+            <td>Created</td>
+            <td>sys_created_on</td>
+            <td>Date/Time</td>
+            <td>Timestamp of CI creation</td>
+          </tr>
+          <tr>
+            <td>Created by</td>
+            <td>sys_created_by</td>
+            <td>String (40)</td>
+            <td>User that created record</td>
+          </tr>
+          <tr>
+            <td>Customer Project</td>
+            <td>u_customer_project</td>
+            <td>Reference (TERP Project)</td>
+            <td>Customer project identification for Smart Billing cost forwarding</td>
+          </tr>
+          <tr>
+            <td>Customer Task</td>
+            <td>u_customer_task</td>
+            <td>Reference (Terp Task)</td>
+            <td>Customer task identification for Smart Billing cost forwarding</td>
+          </tr>
+          <tr>
+            <td>Customer invoicing group</td>
+            <td>u_customer_invoicing_group</td>
+            <td>String (18)</td>
+            <td>Customer cost centre information or other grouping factor for the invoice</td>
+          </tr>
+          <tr>
+            <td>Customer invoicing reference 1</td>
+            <td>u_customer_invoicing_ref_1</td>
+            <td>String (255)</td>
+            <td>Customer internal invoicing/financial information: e.g. customer Cost Center</td>
+          </tr>
+          <tr>
+            <td>Customer invoicing reference 2</td>
+            <td>u_customer_invoicing_ref_2</td>
+            <td>String (255)</td>
+            <td>Customer internal invoicing/financial information: e.g. customer Country/Org Unit</td>
+          </tr>
+          <tr>
+            <td>Decomission Date</td>
+            <td>u_decomission_date</td>
+            <td>Date/Time</td>
+            <td>Defines date when CI was decomissioned</td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>short_description</td>
+            <td>String (1,000)</td>
+            <td>Optional free text to describe important aspects of the CI, information that is not possible to store in attributes / KB and other related CIs via relationships. This attribute is visible to customers.</td>
+          </tr>
+          <tr>
+            <td>Edition</td>
+            <td>edition</td>
+            <td>String (100)</td>
+            <td>Vendor specific application edition</td>
+          </tr>
+          <tr>
+            <td>Environment</td>
+            <td>u_environment</td>
+            <td>Choice</td>
+            <td>Describes if the CI is related to production or some other use</td>
+          </tr>
+          <tr>
+            <td>FQDN</td>
+            <td>fqdn</td>
+            <td>String (255)</td>
+            <td>Fully Qualified Domain Name associated to the CI</td>
+          </tr>
+          <tr>
+            <td>GL account</td>
+            <td>gl_account</td>
+            <td>String (80)</td>
+            <td>Customer internal invoicing/financial information</td>
+          </tr>
+          <tr>
+            <td>Group name</td>
+            <td>u_group_name</td>
+            <td>String (255)</td>
+            <td>Name of group/farm/category which is a member</td>
+          </tr>
+          <tr>
+            <td>IP Address</td>
+            <td>ip_address</td>
+            <td>String (255)</td>
+            <td>Primary production IP address</td>
+          </tr>
+          <tr>
+            <td>Installed</td>
+            <td>install_date</td>
+            <td>Date/Time</td>
+            <td>Timestamp when CI first time taken in use</td>
+          </tr>
+          <tr>
+            <td>License Owner</td>
+            <td>u_license_owner</td>
+            <td>Choice</td>
+            <td>Defines the owner of license for CI</td>
+          </tr>
+          <tr>
+            <td>Lifecycle</td>
+            <td>install_status</td>
+            <td>Integer</td>
+            <td>Lifecycle shows current CI lifecycle phase. See the linked knowledge article for more information.</td>
+          </tr>
+          <tr>
+            <td>Management IP</td>
+            <td>u_management_ip</td>
+            <td>String (255)</td>
+            <td>One of the server/application IP addresses chosen for management use</td>
+          </tr>
+          <tr>
+            <td>Management URL</td>
+            <td>u_management_url</td>
+            <td>URL</td>
+            <td>Defines URL for management use</td>
+          </tr>
+          <tr>
+            <td>Name</td>
             <td>name</td>
-            <td>CI's Name</td>
-            <td>Name of the created/updated CI</td>
+            <td>String (255)</td>
+            <td>The name of the CI. It should uniquely identify the CI for a human. This is not forced as a unique field on database level, but set as unique on the user interface for defined CI classes (Server, Network Gear etc).</td>
           </tr>
           <tr>
-            <td>rel_status</td>
-            <td>CI Relationship's status</td>
-            <td>Result of the operation of CI relationship</td>
+            <td>Original Order</td>
+            <td>u_original_order</td>
+            <td>Reference (Task)</td>
+            <td>Reference to order which created the CI</td>
           </tr>
           <tr>
-            <td>rel_ci_sys_id</td>
-            <td>Child CI's SysID</td>
-            <td>Unique ID of the child CI referenced in CI relationship</td>
+            <td>Primary Business Service</td>
+            <td>u_primary_bs</td>
+            <td>Reference (Automated Business Service)</td>
+            <td>Reference to primary Business Service which is used for Event Management (for automated created incidents)</td>
           </tr>
           <tr>
-            <td>provider_so_sys_id</td>
-            <td>Provider SO's SysID</td>
-            <td>Unique ID of the Provider Service Offering in the created/updated CI</td>
+            <td>Provider SO</td>
+            <td>u_provider_so</td>
+            <td>Reference (Service Offering)</td>
+            <td>Reference to provider Service Offering related to this CI</td>
           </tr>
           <tr>
-            <td>primary_bs_sys_id</td>
-            <td>Primary BS's SysID</td>
-            <td>Unique ID of the Primary Business Service in the created/updated CI</td>
+            <td>Role</td>
+            <td>u_role</td>
+            <td>String (100)</td>
+            <td>Specific role/category of the CI</td>
+          </tr>
+          <tr>
+            <td>Runs On</td>
+            <td>u_runs_on</td>
+            <td>Reference (Configuration Item)</td>
+            <td>Reference to CI on which this CI is running (e.g. OS level server -&gt; Virtualization server, Hypervisor server -&gt; Server HW)</td>
+          </tr>
+          <tr>
+            <td>Serial number</td>
+            <td>serial_number</td>
+            <td>String (255)</td>
+            <td>Serial number of device</td>
+          </tr>
+          <tr>
+            <td>Support group</td>
+            <td>support_group</td>
+            <td>Reference (Group)</td>
+            <td>Main support group automatically populated from Provider Service Offering. Assignment group for incident, change, RFF, etc. Product Team group for Service Package.</td>
+          </tr>
+          <tr>
+            <td>Sys ID</td>
+            <td>sys_id</td>
+            <td>Sys ID (GUID)</td>
+            <td>System unique identifier of each record in CMDB</td>
+          </tr>
+          <tr>
+            <td>Updated</td>
+            <td>sys_updated_on</td>
+            <td>Date/Time</td>
+            <td>System timestamp of CI modification (changed content of CI -&gt; reflects CI staleness)</td>
+          </tr>
+          <tr>
+            <td>Updated by</td>
+            <td>sys_updated_by</td>
+            <td>String (40)</td>
+            <td>User that modified record</td>
+          </tr>
+          <tr>
+            <td>Vendor</td>
+            <td>vendor</td>
+            <td>Reference (Company)</td>
+            <td>Reference to Company which represents the vendor of the CI</td>
+          </tr>
+          <tr>
+            <td>Version</td>
+            <td>version</td>
+            <td>String (255)</td>
+            <td>Vendor specific application version</td>
+          </tr>
+          <tr>
+            <td>Warranty expiration</td>
+            <td>warranty_expiration</td>
+            <td>Date</td>
+            <td>Expiration date of warranty </td>
           </tr>
         </tbody>
       </table>

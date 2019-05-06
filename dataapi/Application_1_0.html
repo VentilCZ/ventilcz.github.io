@@ -85,44 +85,93 @@
         </thead>
         <tbody>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>false</td>
+            <td/>
+            <td title="The Company to whom the CI is assigned to. Companies describe an organizational hierarchy of customer/vendor to a level of detail seen necessary for IT service management purposes.">Company (company)
+              </td>
+            <td>Reference (Company)</td>
+            <td>Auto-populated from customer specific integration account</td>
           </tr>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
+            <td>attr01</td>
+            <td>true</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td title="The name of the CI. It should uniquely identify the CI for a human. This is not forced as a unique field on database level, but set as unique on the user interface for defined CI classes (Server, Network Gear etc).">Name (name)
+              </td>
+            <td>String (255)</td>
+            <td>The name of the CI. It should uniquely identify the CI for a human. This is not forced as a unique field on database level, but set as unique on the user interface for defined CI classes (Server, Network Gear etc).</td>
           </tr>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
+            <td>attr02</td>
+            <td>true</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td title="External ID of the CI used in the external primary data source provider">Correlation ID (correlation_id)
+              </td>
+            <td>String (512)</td>
+            <td>Unique ID on customer side</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>attr03</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td title="Timestamp when CI first time taken in use">Installed (install_date)
+              </td>
+            <td>Date/Time</td>
+            <td>Timestamp when CI first time taken in use</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>attr04</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td title="Optional free text to describe important aspects of the CI, information that is not possible to store in attributes / KB and other related CIs via relationships. This attribute is visible to customers.">Description (short_description)
+              </td>
+            <td>String (1,000)</td>
+            <td>Optional free text to describe important aspects of the CI, information that is not possible to store in attributes / KB and other related CIs via relationships. This attribute is visible to customers.</td>
+          </tr>
+          <tr>
+            <td>attr05</td>
+            <td>false</td>
+            <td/>
+            <td title="Customer internal invoicing/financial information">GL account (gl_account)
+              </td>
+            <td>String (80)</td>
+            <td>Customer internal invoicing/financial information</td>
+          </tr>
+          <tr>
+            <td>attr06</td>
+            <td>false</td>
+            <td/>
+            <td title="Vendor specific application version">Version (version)
+              </td>
+            <td>String (255)</td>
+            <td>Vendor specific application version</td>
+          </tr>
+          <tr>
+            <td>attr07</td>
+            <td>false</td>
+            <td/>
+            <td title="Unique key labeled into the device &#x2013; customer specific, and unique within one customer only">Asset tag (asset_tag)
+              </td>
+            <td>String (40)</td>
+            <td>Unique key labeled into the device – customer specific, and unique within one customer only</td>
+          </tr>
+          <tr>
+            <td>attr10</td>
+            <td>false</td>
+            <td/>
+            <td title="Lifecycle shows current CI lifecycle phase. See the linked knowledge article for more information.">Lifecycle (install_status)
+              </td>
+            <td>Integer</td>
+            <td>7 (Retired) for retirement, otherwise is auto-populated default value 46 (Out of scope)</td>
+          </tr>
+          <tr>
+            <td>related_ci</td>
+            <td>false</td>
+            <td>Dependent (child) Configuration Item</td>
+            <td/>
+            <td/>
+            <td>Sys ID of Server/Cluster CI on which this App is running on (can be fetched via CMDB outbound API)</td>
           </tr>
         </tbody>
       </table>

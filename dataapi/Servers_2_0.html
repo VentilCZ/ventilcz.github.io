@@ -30,18 +30,6 @@
           <td class="span2"/>
         </tr>
         <tr>
-          <th class="span2">Authorized data source:</th>
-          <td class="span2"/>
-          <th class="span2">Contact person:</th>
-          <td class="span2">Till Lukáš</td>
-        </tr>
-        <tr>
-          <th class="span2">Classification:</th>
-          <td class="span2"/>
-          <th class="span2">Allowed operations:</th>
-          <td class="span2">Create &amp; update</td>
-        </tr>
-        <tr>
           <th class="span2">Change log:</th>
           <td colspan="4">Information about the Servers, including Operating system level, VM Instances &amp; HW capacity</td>
         </tr>
@@ -78,51 +66,43 @@
             <th>Parameter</th>
             <th>Mandatory</th>
             <th>Purpose</th>
-            <th>Target attribute</th>
-            <th>Attribute type</th>
             <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>type</td>
+            <td>true</td>
+            <td colspan="2">provide value: "Servers"</td>
           </tr>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>version</td>
+            <td>true</td>
+            <td colspan="2">provide value: "2.0"</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>modified_after</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Modified after timestamp</td>
+            <td>DateTime in format YYYY-MM-DD HH:MM:SS to gather records modified after this timestap</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>records</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Records</td>
+            <td>Comma separated list of SysIDs</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>range</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Range</td>
+            <td>Two comma separated numbers defining the range of returned records</td>
+          </tr>
+          <tr>
+            <td>query</td>
+            <td>false</td>
+            <td>Additional filter condition</td>
+            <td>Encoded query without 2<sup>nd</sup> level condition (^NQ string)</td>
           </tr>
         </tbody>
       </table>
@@ -131,51 +111,486 @@
       <table class="table table-bordered table-condensed table-hover table-striped">
         <thead>
           <tr>
-            <th>Parameter</th>
+            <th>Attribute label</th>
+            <th>Attribute name</th>
+            <th>Attribute type</th>
             <th>Purpose</th>
-            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>classification</td>
-            <td>CI's Classification</td>
-            <td>Classification of created/updated CI</td>
+            <td>Alias</td>
+            <td>alias</td>
+            <td>String (40)</td>
+            <td>Alias name additionally assigned to interface</td>
           </tr>
           <tr>
-            <td>status</td>
-            <td>Status</td>
-            <td>Result of the operation</td>
+            <td>Asset</td>
+            <td>asset</td>
+            <td>Reference (Asset)</td>
+            <td>Reference to Asset record</td>
           </tr>
           <tr>
-            <td>sys_id</td>
-            <td>SysID</td>
-            <td>Unique ID of created/updated record</td>
+            <td>Asset tag</td>
+            <td>asset_tag</td>
+            <td>String (40)</td>
+            <td>Unique key labeled into the device – customer specific, and unique within one customer only</td>
           </tr>
           <tr>
+            <td>Billable</td>
+            <td>u_billable</td>
+            <td>True/False</td>
+            <td>Flag for Smart Billing customer invoicing (entify whether CI is billable to customer or not)</td>
+          </tr>
+          <tr>
+            <td>CI number</td>
+            <td>u_number</td>
+            <td>String (40)</td>
+            <td>Public unique identifier of each record in CMDB</td>
+          </tr>
+          <tr>
+            <td>CPU core count</td>
+            <td>cpu_core_count</td>
+            <td>Integer</td>
+            <td>Amount of cores per CPU socket. For example, "2" means there are two cores in each installed CPU socket.</td>
+          </tr>
+          <tr>
+            <td>CPU count</td>
+            <td>cpu_count</td>
+            <td>Integer</td>
+            <td>Amount of installed (used) CPU sockets on the server</td>
+          </tr>
+          <tr>
+            <td>CPU manufacturer</td>
+            <td>cpu_manufacturer</td>
+            <td>Reference (Company)</td>
+            <td>CPU manufacturer</td>
+          </tr>
+          <tr>
+            <td>CPU speed (MHz)</td>
+            <td>cpu_speed</td>
+            <td>Decimal</td>
+            <td>CPU speed in MHz</td>
+          </tr>
+          <tr>
+            <td>CPU type</td>
+            <td>cpu_type</td>
+            <td>String (40)</td>
+            <td>CPU type, i.e. architecture how the CPU is identified by the BIOS</td>
+          </tr>
+          <tr>
+            <td>CPUs</td>
+            <td>cpus</td>
+            <td>Integer</td>
+            <td>Number of virtual CPUs multiply by virtual cores</td>
+          </tr>
+          <tr>
+            <td>Classification</td>
+            <td>u_subclass</td>
+            <td>Reference (CI Classification)</td>
+            <td>CMDB logical model CI type which is mapped to particular CI Class used in actual CMDB physical model</td>
+          </tr>
+          <tr>
+            <td>Company</td>
+            <td>company</td>
+            <td>Reference (Company)</td>
+            <td>The Company to whom the CI is assigned to. Companies describe an organizational hierarchy of customer/vendor to a level of detail seen necessary for IT service management purposes.</td>
+          </tr>
+          <tr>
+            <td>Configuration Item</td>
+            <td>cmdb_ci</td>
+            <td>Reference (Configuration Item)</td>
+            <td>Reference to node to which this NIC belongs to</td>
+          </tr>
+          <tr>
+            <td>Correlation ID</td>
+            <td>correlation_id</td>
+            <td>String (512)</td>
+            <td>External ID of the CI used in the external primary data source provider</td>
+          </tr>
+          <tr>
+            <td>Cost center</td>
+            <td>cost_center</td>
+            <td>Reference (Cost Center)</td>
+            <td>Reference to Tieto internal Cost center</td>
+          </tr>
+          <tr>
+            <td>Created</td>
+            <td>sys_created_on</td>
+            <td>Date/Time</td>
+            <td>Timestamp of CI creation</td>
+          </tr>
+          <tr>
+            <td>Created by</td>
+            <td>sys_created_by</td>
+            <td>String (40)</td>
+            <td>User that created record</td>
+          </tr>
+          <tr>
+            <td>Customer Project</td>
+            <td>u_customer_project</td>
+            <td>Reference (TERP Project)</td>
+            <td>Customer project identification for Smart Billing cost forwarding</td>
+          </tr>
+          <tr>
+            <td>Customer Task</td>
+            <td>u_customer_task</td>
+            <td>Reference (Terp Task)</td>
+            <td>Customer task identification for Smart Billing cost forwarding</td>
+          </tr>
+          <tr>
+            <td>Customer invoicing group</td>
+            <td>u_customer_invoicing_group</td>
+            <td>String (18)</td>
+            <td>Customer cost centre information or other grouping factor for the invoice</td>
+          </tr>
+          <tr>
+            <td>Customer invoicing reference 1</td>
+            <td>u_customer_invoicing_ref_1</td>
+            <td>String (255)</td>
+            <td>Customer internal invoicing/financial information: e.g. customer Cost Center</td>
+          </tr>
+          <tr>
+            <td>Customer invoicing reference 2</td>
+            <td>u_customer_invoicing_ref_2</td>
+            <td>String (255)</td>
+            <td>Customer internal invoicing/financial information: e.g. customer Country/Org Unit</td>
+          </tr>
+          <tr>
+            <td>DHCP Enabled</td>
+            <td>dhcp_enabled</td>
+            <td>True/False</td>
+            <td>Indicate if NIC has enabled DHCP (Dynamic Host Configuration Protocol)</td>
+          </tr>
+          <tr>
+            <td>Decomission Date</td>
+            <td>u_decomission_date</td>
+            <td>Date/Time</td>
+            <td>Defines date when CI was decomissioned</td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>short_description</td>
+            <td>String (1,000)</td>
+            <td>Optional free text to describe important aspects of the CI, information that is not possible to store in attributes / KB and other related CIs via relationships. This attribute is visible to customers.</td>
+          </tr>
+          <tr>
+            <td>Device tag</td>
+            <td>u_device_tag</td>
+            <td>String (40)</td>
+            <td>Globally unique key labeled into the device - across all customers/vendors</td>
+          </tr>
+          <tr>
+            <td>Discovery source</td>
+            <td>discovery_source</td>
+            <td>String (40)</td>
+            <td>Primary data source provider name</td>
+          </tr>
+          <tr>
+            <td>Disk space (GB)</td>
+            <td>disk_space</td>
+            <td>Decimal</td>
+            <td>Disk space in GB</td>
+          </tr>
+          <tr>
+            <td>Disks size (GB)</td>
+            <td>disks_size</td>
+            <td>Integer</td>
+            <td>Total provisioned storage for a VM in gigabytes</td>
+          </tr>
+          <tr>
+            <td>Environment</td>
+            <td>u_environment</td>
+            <td>Choice</td>
+            <td>Describes if the CI is related to production or some other use</td>
+          </tr>
+          <tr>
+            <td>Exact location</td>
+            <td>u_exact_location</td>
+            <td>String (100)</td>
+            <td>Free text information about physical location within a building</td>
+          </tr>
+          <tr>
+            <td>FQDN</td>
+            <td>fqdn</td>
+            <td>String (255)</td>
+            <td>Fully Qualified Domain Name associated to the CI</td>
+          </tr>
+          <tr>
+            <td>Firmware version</td>
+            <td>u_firmware_version</td>
+            <td>String (40)</td>
+            <td>Hardware version</td>
+          </tr>
+          <tr>
+            <td>GL account</td>
+            <td>gl_account</td>
+            <td>String (80)</td>
+            <td>Customer internal invoicing/financial information</td>
+          </tr>
+          <tr>
+            <td>Host name</td>
+            <td>host_name</td>
+            <td>String (255)</td>
+            <td>Server hostname</td>
+          </tr>
+          <tr>
+            <td>IP Address</td>
+            <td>ip_address</td>
+            <td>String (255)</td>
+            <td>Primary production IP address</td>
+          </tr>
+          <tr>
+            <td>IP default gateway</td>
+            <td>ip_default_gateway</td>
+            <td>String (40)</td>
+            <td>IP Address representing node that is assumed to know how to forward packets on to other networks</td>
+          </tr>
+          <tr>
+            <td>Installed</td>
+            <td>install_date</td>
+            <td>Date/Time</td>
+            <td>Timestamp when CI first time taken in use</td>
+          </tr>
+          <tr>
+            <td>Last discovered</td>
+            <td>last_discovered</td>
+            <td>Date/Time</td>
+            <td>Timestamp of the last update from primary data source provider</td>
+          </tr>
+          <tr>
+            <td>License Owner</td>
+            <td>u_license_owner</td>
+            <td>Choice</td>
+            <td>Defines the owner of license for CI</td>
+          </tr>
+          <tr>
+            <td>Lifecycle</td>
+            <td>install_status</td>
+            <td>Integer</td>
+            <td>Lifecycle shows current CI lifecycle phase. See the linked knowledge article for more information.</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>location</td>
+            <td>Reference (Location)</td>
+            <td>Physical location of CI (as in most detail as possible)</td>
+          </tr>
+          <tr>
+            <td>MAC Address</td>
+            <td>mac_address</td>
+            <td>String (100)</td>
+            <td>Contains the list of all MAC addresses attached to the device (LAN, WAN, WLAN)</td>
+          </tr>
+          <tr>
+            <td>Mac manufacturer</td>
+            <td>mac_manufacturer</td>
+            <td>Reference (Company)</td>
+            <td>NIC manufacturer determined by MAC Address</td>
+          </tr>
+          <tr>
+            <td>Maintenance schedule</td>
+            <td>maintenance_schedule</td>
+            <td>Reference (Schedule)</td>
+            <td>Reference to CI specific maintenance windows slot</td>
+          </tr>
+          <tr>
+            <td>Management IP</td>
+            <td>u_management_ip</td>
+            <td>String (255)</td>
+            <td>One of the server/application IP addresses chosen for management use</td>
+          </tr>
+          <tr>
+            <td>Management group(s)</td>
+            <td>u_management_group</td>
+            <td>List</td>
+            <td>Used to grant access to ST3/Increased (Elevated) level servers. It should left empty if new version of access management (Access Scope and Duties) is used.</td>
+          </tr>
+          <tr>
+            <td>Manufacturer</td>
+            <td>manufacturer</td>
+            <td>Reference (Company)</td>
+            <td>Reference to Company which represents the manufacturer of the CI</td>
+          </tr>
+          <tr>
+            <td>Memory (MB)</td>
+            <td>memory</td>
+            <td>Integer</td>
+            <td>VM memory size in megabytes</td>
+          </tr>
+          <tr>
+            <td>Model ID</td>
+            <td>model_id</td>
+            <td>Reference (Product Model)</td>
+            <td>Reference to Model entity (part of Asset Management)</td>
+          </tr>
+          <tr>
+            <td>Model number</td>
+            <td>model_number</td>
+            <td>String (255)</td>
+            <td>Contains the vendor sales item product name. The syntax is defined by the device vendor in their product catalog.</td>
+          </tr>
+          <tr>
+            <td>Mount side</td>
+            <td>u_mount_side</td>
+            <td>Choice</td>
+            <td>Describes whether the device is mounted on the front or back of the rack</td>
+          </tr>
+          <tr>
+            <td>Name</td>
             <td>name</td>
-            <td>CI's Name</td>
-            <td>Name of the created/updated CI</td>
+            <td>String (255)</td>
+            <td>The name of the CI. It should uniquely identify the CI for a human. This is not forced as a unique field on database level, but set as unique on the user interface for defined CI classes (Server, Network Gear etc).</td>
           </tr>
           <tr>
-            <td>rel_status</td>
-            <td>CI Relationship's status</td>
-            <td>Result of the operation of CI relationship</td>
+            <td>Netmask</td>
+            <td>netmask</td>
+            <td>String (40)</td>
+            <td>32-bit number that masks an IP address, and divides the IP address into network address and host address</td>
           </tr>
           <tr>
-            <td>rel_ci_sys_id</td>
-            <td>Child CI's SysID</td>
-            <td>Unique ID of the child CI referenced in CI relationship</td>
+            <td>Network adapters</td>
+            <td>nics</td>
+            <td>Integer</td>
+            <td>Number of network interface adapters</td>
           </tr>
           <tr>
-            <td>provider_so_sys_id</td>
-            <td>Provider SO's SysID</td>
-            <td>Unique ID of the Provider Service Offering in the created/updated CI</td>
+            <td>OS Address Width (bits)</td>
+            <td>os_address_width</td>
+            <td>Integer</td>
+            <td>OS Architecture (i.e. 32 or 64 bits OS)</td>
           </tr>
           <tr>
-            <td>primary_bs_sys_id</td>
-            <td>Primary BS's SysID</td>
-            <td>Unique ID of the Primary Business Service in the created/updated CI</td>
+            <td>OS Domain</td>
+            <td>os_domain</td>
+            <td>String (40)</td>
+            <td>OS Domain</td>
+          </tr>
+          <tr>
+            <td>OS Version</td>
+            <td>os_version</td>
+            <td>String (40)</td>
+            <td>The detailed operating system version, relates to Operating System field.</td>
+          </tr>
+          <tr>
+            <td>Operating System</td>
+            <td>os</td>
+            <td>String (50)</td>
+            <td>The operating system category</td>
+          </tr>
+          <tr>
+            <td>Original Order</td>
+            <td>u_original_order</td>
+            <td>Reference (Task)</td>
+            <td>Reference to order which created the CI</td>
+          </tr>
+          <tr>
+            <td>Patching Window</td>
+            <td>u_patching_window</td>
+            <td>Reference (Patching Window)</td>
+            <td>Defines the information about server patching</td>
+          </tr>
+          <tr>
+            <td>Primary Business Service</td>
+            <td>u_primary_bs</td>
+            <td>Reference (Automated Business Service)</td>
+            <td>Reference to primary Business Service which is used for Event Management (for automated created incidents)</td>
+          </tr>
+          <tr>
+            <td>Provider SO</td>
+            <td>u_provider_so</td>
+            <td>Reference (Service Offering)</td>
+            <td>Reference to provider Service Offering related to this CI</td>
+          </tr>
+          <tr>
+            <td>RAM (MB)</td>
+            <td>ram</td>
+            <td>Integer</td>
+            <td>Installed (allocated) physical memory in MB</td>
+          </tr>
+          <tr>
+            <td>Rack</td>
+            <td>u_rack</td>
+            <td>Reference (Rack)</td>
+            <td>Reference to Rack where is this rackable hardware (any HW CIs that can be racked: Server Hardware, Netgear, Storage Devices etc.) mounted on. If this reference exists, then it consumes Rack space.</td>
+          </tr>
+          <tr>
+            <td>Role</td>
+            <td>u_role</td>
+            <td>String (100)</td>
+            <td>Specific role/category of the CI</td>
+          </tr>
+          <tr>
+            <td>Serial number</td>
+            <td>serial_number</td>
+            <td>String (255)</td>
+            <td>Serial number of device</td>
+          </tr>
+          <tr>
+            <td>State</td>
+            <td>state</td>
+            <td>String (40)</td>
+            <td>VM power state</td>
+          </tr>
+          <tr>
+            <td>Support group</td>
+            <td>support_group</td>
+            <td>Reference (Group)</td>
+            <td>Main support group automatically populated from Provider Service Offering. Assignment group for incident, change, RFF, etc. Product Team group for Service Package.</td>
+          </tr>
+          <tr>
+            <td>Sys ID</td>
+            <td>sys_id</td>
+            <td>Sys ID (GUID)</td>
+            <td>System unique identifier of each record in CMDB</td>
+          </tr>
+          <tr>
+            <td>U count</td>
+            <td>u_count</td>
+            <td>Decimal</td>
+            <td>Describes the mount height from the "U start" position for the device</td>
+          </tr>
+          <tr>
+            <td>U start</td>
+            <td>u_start</td>
+            <td>Decimal</td>
+            <td>The starting position of physical device in the rack. Most bottom position is 1.</td>
+          </tr>
+          <tr>
+            <td>Updated</td>
+            <td>sys_updated_on</td>
+            <td>Date/Time</td>
+            <td>System timestamp of CI modification (changed content of CI -&gt; reflects CI staleness)</td>
+          </tr>
+          <tr>
+            <td>Updated by</td>
+            <td>sys_updated_by</td>
+            <td>String (40)</td>
+            <td>User that modified record</td>
+          </tr>
+          <tr>
+            <td>VM Instance UUID</td>
+            <td>vm_instance_uuid</td>
+            <td>String (40)</td>
+            <td>Unique identifier of the VM instance</td>
+          </tr>
+          <tr>
+            <td>Virtual</td>
+            <td>virtual</td>
+            <td>True/False</td>
+            <td>Indicate if the hardware device is virtual or not</td>
+          </tr>
+          <tr>
+            <td>Warranty expiration</td>
+            <td>warranty_expiration</td>
+            <td>Date</td>
+            <td>Expiration date of warranty </td>
+          </tr>
+          <tr>
+            <td>Windows Host</td>
+            <td>windows_host</td>
+            <td>Reference (Windows Server)</td>
+            <td>Reference to Windows Server on which this Hyper-V is running</td>
           </tr>
         </tbody>
       </table>

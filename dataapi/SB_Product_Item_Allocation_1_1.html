@@ -85,44 +85,52 @@
         </thead>
         <tbody>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>false</td>
+            <td/>
+            <td>Billable</td>
+            <td/>
+            <td>Auto-populated by fixed value: false</td>
           </tr>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
+            <td>attr01</td>
+            <td>true</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Configuration Item</td>
+            <td/>
+            <td>CI number or Sys ID corresponding Configuration Item</td>
           </tr>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
+            <td>attr02</td>
+            <td>true</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Product Item</td>
+            <td/>
+            <td>TERP ID corresponding Product Item</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>attr03</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Customer Project</td>
+            <td/>
+            <td>Project Number corresponding Customer project for invoicing</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>attr04</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Customer Task</td>
+            <td/>
+            <td>Task Number corresponding Customer task for invoicing (it has to be chargeable)</td>
+          </tr>
+          <tr>
+            <td>delete_record</td>
+            <td>false</td>
+            <td>flag for delete action</td>
+            <td/>
+            <td/>
+            <td>true for deletion of existing record (attr01 &amp; attr02 have to be provided as unique key and record have to be non-billable)</td>
           </tr>
         </tbody>
       </table>

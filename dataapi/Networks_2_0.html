@@ -30,18 +30,6 @@
           <td class="span2"/>
         </tr>
         <tr>
-          <th class="span2">Authorized data source:</th>
-          <td class="span2"/>
-          <th class="span2">Contact person:</th>
-          <td class="span2">Till Lukáš</td>
-        </tr>
-        <tr>
-          <th class="span2">Classification:</th>
-          <td class="span2"/>
-          <th class="span2">Allowed operations:</th>
-          <td class="span2">Create &amp; update</td>
-        </tr>
-        <tr>
           <th class="span2">Change log:</th>
           <td colspan="4">Information about Connectivity devices, Load Balancers, IP networks &amp; subnets, IP addresses etc.</td>
         </tr>
@@ -78,51 +66,43 @@
             <th>Parameter</th>
             <th>Mandatory</th>
             <th>Purpose</th>
-            <th>Target attribute</th>
-            <th>Attribute type</th>
             <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>type</td>
+            <td>true</td>
+            <td colspan="2">provide value: "Networks"</td>
           </tr>
           <tr>
-            <td>attr22</td>
-            <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>version</td>
+            <td>true</td>
+            <td colspan="2">provide value: "2.0"</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>modified_after</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Modified after timestamp</td>
+            <td>DateTime in format YYYY-MM-DD HH:MM:SS to gather records modified after this timestap</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>records</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Records</td>
+            <td>Comma separated list of SysIDs</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>range</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
-            <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td>Range</td>
+            <td>Two comma separated numbers defining the range of returned records</td>
+          </tr>
+          <tr>
+            <td>query</td>
+            <td>false</td>
+            <td>Additional filter condition</td>
+            <td>Encoded query without 2<sup>nd</sup> level condition (^NQ string)</td>
           </tr>
         </tbody>
       </table>
@@ -131,51 +111,414 @@
       <table class="table table-bordered table-condensed table-hover table-striped">
         <thead>
           <tr>
-            <th>Parameter</th>
+            <th>Attribute label</th>
+            <th>Attribute name</th>
+            <th>Attribute type</th>
             <th>Purpose</th>
-            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>classification</td>
-            <td>CI's Classification</td>
-            <td>Classification of created/updated CI</td>
+            <td>Asset</td>
+            <td>asset</td>
+            <td>Reference (Asset)</td>
+            <td>Reference to Asset record</td>
           </tr>
           <tr>
-            <td>status</td>
-            <td>Status</td>
-            <td>Result of the operation</td>
+            <td>Asset tag</td>
+            <td>asset_tag</td>
+            <td>String (40)</td>
+            <td>Unique key labeled into the device – customer specific, and unique within one customer only</td>
           </tr>
           <tr>
-            <td>sys_id</td>
-            <td>SysID</td>
-            <td>Unique ID of created/updated record</td>
+            <td>Belongs to</td>
+            <td>u_belongs_to</td>
+            <td>Reference (IP Network)</td>
+            <td>Reference to a logical group of network components (Core)</td>
           </tr>
           <tr>
+            <td>Billable</td>
+            <td>u_billable</td>
+            <td>True/False</td>
+            <td>Flag for Smart Billing customer invoicing (entify whether CI is billable to customer or not)</td>
+          </tr>
+          <tr>
+            <td>CI number</td>
+            <td>u_number</td>
+            <td>String (40)</td>
+            <td>Public unique identifier of each record in CMDB</td>
+          </tr>
+          <tr>
+            <td>Classification</td>
+            <td>u_subclass</td>
+            <td>Reference (CI Classification)</td>
+            <td>CMDB logical model CI type which is mapped to particular CI Class used in actual CMDB physical model</td>
+          </tr>
+          <tr>
+            <td>Company</td>
+            <td>company</td>
+            <td>Reference (Company)</td>
+            <td>The Company to whom the CI is assigned to. Companies describe an organizational hierarchy of customer/vendor to a level of detail seen necessary for IT service management purposes.</td>
+          </tr>
+          <tr>
+            <td>Correlation ID</td>
+            <td>correlation_id</td>
+            <td>String (512)</td>
+            <td>External ID of the CI used in the external primary data source provider</td>
+          </tr>
+          <tr>
+            <td>Cost center</td>
+            <td>cost_center</td>
+            <td>Reference (Cost Center)</td>
+            <td>Reference to Tieto internal Cost center</td>
+          </tr>
+          <tr>
+            <td>Created</td>
+            <td>sys_created_on</td>
+            <td>Date/Time</td>
+            <td>Timestamp of CI creation</td>
+          </tr>
+          <tr>
+            <td>Created by</td>
+            <td>sys_created_by</td>
+            <td>String (40)</td>
+            <td>User that created record</td>
+          </tr>
+          <tr>
+            <td>Customer Project</td>
+            <td>u_customer_project</td>
+            <td>Reference (TERP Project)</td>
+            <td>Customer project identification for Smart Billing cost forwarding</td>
+          </tr>
+          <tr>
+            <td>Customer Task</td>
+            <td>u_customer_task</td>
+            <td>Reference (Terp Task)</td>
+            <td>Customer task identification for Smart Billing cost forwarding</td>
+          </tr>
+          <tr>
+            <td>Customer invoicing group</td>
+            <td>u_customer_invoicing_group</td>
+            <td>String (18)</td>
+            <td>Customer cost centre information or other grouping factor for the invoice</td>
+          </tr>
+          <tr>
+            <td>Customer invoicing reference 1</td>
+            <td>u_customer_invoicing_ref_1</td>
+            <td>String (255)</td>
+            <td>Customer internal invoicing/financial information: e.g. customer Cost Center</td>
+          </tr>
+          <tr>
+            <td>Customer invoicing reference 2</td>
+            <td>u_customer_invoicing_ref_2</td>
+            <td>String (255)</td>
+            <td>Customer internal invoicing/financial information: e.g. customer Country/Org Unit</td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>short_description</td>
+            <td>String (1,000)</td>
+            <td>Optional free text to describe important aspects of the CI, information that is not possible to store in attributes / KB and other related CIs via relationships. This attribute is visible to customers.</td>
+          </tr>
+          <tr>
+            <td>Device tag</td>
+            <td>u_device_tag</td>
+            <td>String (40)</td>
+            <td>Globally unique key labeled into the device - across all customers/vendors</td>
+          </tr>
+          <tr>
+            <td>Discovery source</td>
+            <td>discovery_source</td>
+            <td>String (40)</td>
+            <td>Primary data source provider name</td>
+          </tr>
+          <tr>
+            <td>Environment</td>
+            <td>u_environment</td>
+            <td>Choice</td>
+            <td>Describes if the CI is related to production or some other use</td>
+          </tr>
+          <tr>
+            <td>Exact location</td>
+            <td>u_exact_location</td>
+            <td>String (100)</td>
+            <td>Free text information about physical location within a building</td>
+          </tr>
+          <tr>
+            <td>Failover peer</td>
+            <td>failover_peer</td>
+            <td>Reference (F5 BIG-IP)</td>
+            <td>Reference to peer F5 BIG IP </td>
+          </tr>
+          <tr>
+            <td>Firmware manufacturer</td>
+            <td>firmware_manufacturer</td>
+            <td>Reference (Company)</td>
+            <td>Manufacturer of the network gear firmware</td>
+          </tr>
+          <tr>
+            <td>Firmware version</td>
+            <td>u_firmware_version</td>
+            <td>String (40)</td>
+            <td>Hardware version</td>
+          </tr>
+          <tr>
+            <td>Firmware version</td>
+            <td>firmware_version</td>
+            <td>String (40)</td>
+            <td>Firmware version of network gear</td>
+          </tr>
+          <tr>
+            <td>GL account</td>
+            <td>gl_account</td>
+            <td>String (80)</td>
+            <td>Customer internal invoicing/financial information</td>
+          </tr>
+          <tr>
+            <td>Group name</td>
+            <td>u_group_name</td>
+            <td>String (255)</td>
+            <td>Name of group/farm/category which is a member</td>
+          </tr>
+          <tr>
+            <td>Hostname</td>
+            <td>u_hostname</td>
+            <td>String (255)</td>
+            <td>Hostname of non-server hardware device (network gear, storage device etc.)</td>
+          </tr>
+          <tr>
+            <td>IP Address</td>
+            <td>ip_address</td>
+            <td>String (255)</td>
+            <td>Primary production IP address</td>
+          </tr>
+          <tr>
+            <td>IP version</td>
+            <td>ip_version</td>
+            <td>Integer</td>
+            <td>Version (4 or 6) of Internet Protocol</td>
+          </tr>
+          <tr>
+            <td>Input URL</td>
+            <td>input_url</td>
+            <td>String (200)</td>
+            <td>The service's URL</td>
+          </tr>
+          <tr>
+            <td>Installed</td>
+            <td>install_date</td>
+            <td>Date/Time</td>
+            <td>Timestamp when CI first time taken in use</td>
+          </tr>
+          <tr>
+            <td>Last discovered</td>
+            <td>last_discovered</td>
+            <td>Date/Time</td>
+            <td>Timestamp of the last update from primary data source provider</td>
+          </tr>
+          <tr>
+            <td>Lifecycle</td>
+            <td>install_status</td>
+            <td>Integer</td>
+            <td>Lifecycle shows current CI lifecycle phase. See the linked knowledge article for more information.</td>
+          </tr>
+          <tr>
+            <td>Load balancer</td>
+            <td>load_balancer</td>
+            <td>Reference (Configuration Item)</td>
+            <td>Reference to particular Load balancer hardware or Load balancer application</td>
+          </tr>
+          <tr>
+            <td>Load balancer</td>
+            <td>load_balancer</td>
+            <td>Reference (Configuration Item)</td>
+            <td>Reference to particular Load balancer hardware or Load balancer application</td>
+          </tr>
+          <tr>
+            <td>Load balancer</td>
+            <td>load_balancer</td>
+            <td>Reference (Configuration Item)</td>
+            <td>Reference to particular Load balancer hardware or Load balancer application</td>
+          </tr>
+          <tr>
+            <td>Load balancing method</td>
+            <td>load_balancing_method</td>
+            <td>String (40)</td>
+            <td>Method of Load balancing</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>location</td>
+            <td>Reference (Location)</td>
+            <td>Physical location of CI (as in most detail as possible)</td>
+          </tr>
+          <tr>
+            <td>MAC Address</td>
+            <td>mac_address</td>
+            <td>String (100)</td>
+            <td>Contains the list of all MAC addresses attached to the device (LAN, WAN, WLAN)</td>
+          </tr>
+          <tr>
+            <td>Management IP</td>
+            <td>u_management_ip</td>
+            <td>String (255)</td>
+            <td>One of the server/application IP addresses chosen for management use</td>
+          </tr>
+          <tr>
+            <td>Manufacturer</td>
+            <td>manufacturer</td>
+            <td>Reference (Company)</td>
+            <td>Reference to Company which represents the manufacturer of the CI</td>
+          </tr>
+          <tr>
+            <td>Model ID</td>
+            <td>model_id</td>
+            <td>Reference (Product Model)</td>
+            <td>Reference to Model entity (part of Asset Management)</td>
+          </tr>
+          <tr>
+            <td>Mount side</td>
+            <td>u_mount_side</td>
+            <td>Choice</td>
+            <td>Describes whether the device is mounted on the front or back of the rack</td>
+          </tr>
+          <tr>
+            <td>Name</td>
             <td>name</td>
-            <td>CI's Name</td>
-            <td>Name of the created/updated CI</td>
+            <td>String (255)</td>
+            <td>The name of the CI. It should uniquely identify the CI for a human. This is not forced as a unique field on database level, but set as unique on the user interface for defined CI classes (Server, Network Gear etc).</td>
           </tr>
           <tr>
-            <td>rel_status</td>
-            <td>CI Relationship's status</td>
-            <td>Result of the operation of CI relationship</td>
+            <td>Netmask</td>
+            <td>netmask</td>
+            <td>String (15)</td>
+            <td>32-bit number that masks an IP address, and divides the IP address into network address and host address</td>
           </tr>
           <tr>
-            <td>rel_ci_sys_id</td>
-            <td>Child CI's SysID</td>
-            <td>Unique ID of the child CI referenced in CI relationship</td>
+            <td>Nic</td>
+            <td>nic</td>
+            <td>Reference (Network Adapter)</td>
+            <td>Reference to Network Interface Card on which is IP Address registered</td>
           </tr>
           <tr>
-            <td>provider_so_sys_id</td>
-            <td>Provider SO's SysID</td>
-            <td>Unique ID of the Provider Service Offering in the created/updated CI</td>
+            <td>Pool</td>
+            <td>pool</td>
+            <td>Reference (Load Balancer Pool)</td>
+            <td>Reference to parent Load Balancer Pool</td>
           </tr>
           <tr>
-            <td>primary_bs_sys_id</td>
-            <td>Primary BS's SysID</td>
-            <td>Unique ID of the Primary Business Service in the created/updated CI</td>
+            <td>Port</td>
+            <td>port</td>
+            <td>Integer</td>
+            <td>The service's listen port</td>
+          </tr>
+          <tr>
+            <td>Primary Business Service</td>
+            <td>u_primary_bs</td>
+            <td>Reference (Automated Business Service)</td>
+            <td>Reference to primary Business Service which is used for Event Management (for automated created incidents)</td>
+          </tr>
+          <tr>
+            <td>Provider SO</td>
+            <td>u_provider_so</td>
+            <td>Reference (Service Offering)</td>
+            <td>Reference to provider Service Offering related to this CI</td>
+          </tr>
+          <tr>
+            <td>RAM (MB)</td>
+            <td>ram</td>
+            <td>Integer</td>
+            <td>Physical memory of network gear in MB</td>
+          </tr>
+          <tr>
+            <td>RAM (MB)</td>
+            <td>ram</td>
+            <td>Integer</td>
+            <td>Installed (allocated) physical memory in MB</td>
+          </tr>
+          <tr>
+            <td>Rack</td>
+            <td>u_rack</td>
+            <td>Reference (Rack)</td>
+            <td>Reference to Rack where is this rackable hardware (any HW CIs that can be racked: Server Hardware, Netgear, Storage Devices etc.) mounted on. If this reference exists, then it consumes Rack space.</td>
+          </tr>
+          <tr>
+            <td>Role</td>
+            <td>u_role</td>
+            <td>String (100)</td>
+            <td>Specific role/category of the CI</td>
+          </tr>
+          <tr>
+            <td>Serial number</td>
+            <td>serial_number</td>
+            <td>String (255)</td>
+            <td>Serial number of device</td>
+          </tr>
+          <tr>
+            <td>Service</td>
+            <td>service</td>
+            <td>Reference (Load Balancer Service)</td>
+            <td>Reference to particular Load Balancer Service</td>
+          </tr>
+          <tr>
+            <td>Service port</td>
+            <td>service_port</td>
+            <td>Integer</td>
+            <td>The port that this pool member offers the load balanced service on</td>
+          </tr>
+          <tr>
+            <td>Subnet</td>
+            <td>subnet</td>
+            <td>String (40)</td>
+            <td>IP range in CIDR format or net/mask format</td>
+          </tr>
+          <tr>
+            <td>Support group</td>
+            <td>support_group</td>
+            <td>Reference (Group)</td>
+            <td>Main support group automatically populated from Provider Service Offering. Assignment group for incident, change, RFF, etc. Product Team group for Service Package.</td>
+          </tr>
+          <tr>
+            <td>Sys ID</td>
+            <td>sys_id</td>
+            <td>Sys ID (GUID)</td>
+            <td>System unique identifier of each record in CMDB</td>
+          </tr>
+          <tr>
+            <td>U count</td>
+            <td>u_count</td>
+            <td>Decimal</td>
+            <td>Describes the mount height from the "U start" position for the device</td>
+          </tr>
+          <tr>
+            <td>U start</td>
+            <td>u_start</td>
+            <td>Decimal</td>
+            <td>The starting position of physical device in the rack. Most bottom position is 1.</td>
+          </tr>
+          <tr>
+            <td>Updated</td>
+            <td>sys_updated_on</td>
+            <td>Date/Time</td>
+            <td>System timestamp of CI modification (changed content of CI -&gt; reflects CI staleness)</td>
+          </tr>
+          <tr>
+            <td>Updated by</td>
+            <td>sys_updated_by</td>
+            <td>String (40)</td>
+            <td>User that modified record</td>
+          </tr>
+          <tr>
+            <td>Vendor</td>
+            <td>vendor</td>
+            <td>Reference (Company)</td>
+            <td>Reference to Company which represents the vendor of the CI</td>
+          </tr>
+          <tr>
+            <td>Virtual</td>
+            <td>virtual</td>
+            <td>True/False</td>
+            <td>Indicate if the hardware device is virtual or not</td>
           </tr>
         </tbody>
       </table>
