@@ -18,10 +18,10 @@
       <table class="table">
         <tr>
           <th class="span2">Actual phase:</th>
-          <td class="span2">Production</td>
+          <td class="span2">Release</td>
           <td class="span1" rowspan="4"/>
           <th class="span2">Valid since:</th>
-          <td class="span2">2019-02-18</td>
+          <td class="span2"/>
         </tr>
         <tr>
           <th class="span2">Depricated since:</th>
@@ -31,19 +31,19 @@
         </tr>
         <tr>
           <th class="span2">Authorized data source:</th>
-          <td class="span2">Tieto Cloud Server</td>
+          <td class="span2">Tieto MS SQL</td>
           <th class="span2">Contact person:</th>
-          <td class="span2">Chorzempa Tomáš</td>
+          <td class="span2">Belej Jan</td>
         </tr>
         <tr>
           <th class="span2">Classification:</th>
-          <td class="span2">Group</td>
+          <td class="span2">Application Cluster</td>
           <th class="span2">Allowed operations:</th>
           <td class="span2">Create &amp; update</td>
         </tr>
         <tr>
           <th class="span2">Change log:</th>
-          <td colspan="4">Switch for Lifecycle, Provider SO and Primary Business Service from generic parameters towards new dedicated ones</td>
+          <td colspan="4"/>
         </tr>
       </table>
     </div>
@@ -87,7 +87,7 @@
           <tr>
             <td>type</td>
             <td>true</td>
-            <td colspan="4">provide value: "TCS Group"</td>
+            <td colspan="4">provide value: "Tieto MS SQL Listener"</td>
           </tr>
           <tr>
             <td>attr01</td>
@@ -108,6 +108,15 @@
             <td>External ID of the CI used in the external primary data source provider</td>
           </tr>
           <tr>
+            <td>attr03</td>
+            <td>false</td>
+            <td/>
+            <td title="Timestamp when CI first time taken in use">Installed (install_date)
+              </td>
+            <td>Date/Time</td>
+            <td>Timestamp when CI first time taken in use</td>
+          </tr>
+          <tr>
             <td>attr04</td>
             <td>false</td>
             <td/>
@@ -115,6 +124,33 @@
               </td>
             <td>String (1,000)</td>
             <td>Optional free text to describe important aspects of the CI, information that is not possible to store in attributes / KB and other related CIs via relationships. This attribute is visible to customers.</td>
+          </tr>
+          <tr>
+            <td>attr05</td>
+            <td>false</td>
+            <td/>
+            <td title="Optional free text for describe and comments of CI, information that is not possible to store in attributes / KB and other related CIs via relationships. This attribute is for internal purposes only.">Comments (comments)
+              </td>
+            <td>String (4,000)</td>
+            <td>Optional free text for describe and comments of CI, information that is not possible to store in attributes / KB and other related CIs via relationships. This attribute is for internal purposes only.</td>
+          </tr>
+          <tr>
+            <td>attr09</td>
+            <td>false</td>
+            <td/>
+            <td title="Specific role/category of the CI">Role (u_role)
+              </td>
+            <td>String (100)</td>
+            <td>Specific role/category of the CI</td>
+          </tr>
+          <tr>
+            <td>attr10</td>
+            <td>false</td>
+            <td/>
+            <td title="Primary production IP address">IP Address (ip_address)
+              </td>
+            <td>String (255)</td>
+            <td>Primary production IP address</td>
           </tr>
           <tr>
             <td>attr21</td>
@@ -126,21 +162,22 @@
             <td>Responsible person for CI content (represents a CI Owner role)</td>
           </tr>
           <tr>
-            <td>attr22</td>
+            <td>attr26</td>
             <td>false</td>
-            <td>TERP Task ID</td>
-            <td>Customer Project &amp; Customer Task</td>
             <td/>
-            <td>Unique ID used to populate dependend attributes Customer project &amp; task in CI</td>
+            <td title="Describes if the CI is related to production or some other use">Environment (u_environment)
+              </td>
+            <td>Choice</td>
+            <td>Describes if the CI is related to production or some other use</td>
           </tr>
           <tr>
-            <td>attr24</td>
+            <td>attr38</td>
             <td>false</td>
             <td/>
-            <td title="Customer cost centre information or other grouping factor for the invoice">Customer invoicing group (u_customer_invoicing_group)
+            <td title="One of the server/application IP addresses chosen for management use">Management IP (u_management_ip)
               </td>
-            <td>String (18)</td>
-            <td>Customer cost centre information or other grouping factor for the invoice</td>
+            <td>String (255)</td>
+            <td>One of the server/application IP addresses chosen for management use</td>
           </tr>
           <tr>
             <td>company</td>
@@ -159,6 +196,15 @@
               </td>
             <td>Integer</td>
             <td>Lifecycle shows current CI lifecycle phase. See the linked knowledge article for more information.</td>
+          </tr>
+          <tr>
+            <td>primary_bs</td>
+            <td>false</td>
+            <td/>
+            <td title="Reference to primary Business Service which is used for Event Management (for automated created incidents)">Primary Business Service (u_primary_bs)
+              </td>
+            <td>Reference (Automated Business Service)</td>
+            <td>CI number or Sys ID corresponding Business Service (SO)</td>
           </tr>
           <tr>
             <td>provider_so</td>

@@ -18,10 +18,10 @@
       <table class="table">
         <tr>
           <th class="span2">Actual phase:</th>
-          <td class="span2">Production</td>
+          <td class="span2">Release</td>
           <td class="span1" rowspan="4"/>
           <th class="span2">Valid since:</th>
-          <td class="span2">2019-05-06</td>
+          <td class="span2"/>
         </tr>
         <tr>
           <th class="span2">Depricated since:</th>
@@ -31,7 +31,7 @@
         </tr>
         <tr>
           <th class="span2">Change log:</th>
-          <td colspan="4">Information about Product items allocated to Configuration items</td>
+          <td colspan="4">Information about companies and their organization units</td>
         </tr>
       </table>
     </div>
@@ -73,7 +73,7 @@
           <tr>
             <td>type</td>
             <td>true</td>
-            <td colspan="2">provide value: "SB Product Item Allocations"</td>
+            <td colspan="2">provide value: "Companies"</td>
           </tr>
           <tr>
             <td>version</td>
@@ -119,46 +119,64 @@
         </thead>
         <tbody>
           <tr>
-            <td>Billable</td>
+            <td>Active</td>
             <td/>
             <td/>
-            <td>Flag for Smart Billing customer invoicing (entify whether is billable to customer or not)</td>
+            <td>Flag indicating whether is record still valid or not</td>
           </tr>
           <tr>
-            <td>Configuration Item</td>
+            <td>Company Tag</td>
             <td/>
             <td/>
-            <td>Associated Configuration Item</td>
+            <td>Public unique identifier of each company record</td>
           </tr>
           <tr>
-            <td>Customer Project</td>
+            <td>Full Name</td>
             <td/>
             <td/>
-            <td>Customer project identification for Smart Billing customer invoicing</td>
+            <td>Slash separated list of all organization units in the company hierarchy from the root (including this record)</td>
           </tr>
           <tr>
-            <td>Customer Task</td>
+            <td>IDM ID</td>
             <td/>
             <td/>
-            <td>Customer task identification for Smart Billing customer invoicing</td>
+            <td>IDM (Identity management system) unique identifier of each record</td>
           </tr>
           <tr>
-            <td>Domain</td>
+            <td>IDM Last seen</td>
             <td/>
             <td/>
-            <td>Sets the record visibility and it is inherited from the company</td>
+            <td>IDM (Identity management system) timestamp when the record was last present</td>
           </tr>
           <tr>
-            <td>Product Item</td>
+            <td>Name</td>
             <td/>
             <td/>
-            <td>Associated Product Item</td>
+            <td>Display value of company / organization unit</td>
+          </tr>
+          <tr>
+            <td>Parent</td>
+            <td/>
+            <td/>
+            <td>Superior organization unit (empty for root of the company structure)</td>
           </tr>
           <tr>
             <td>Sys ID</td>
             <td/>
             <td/>
             <td>System unique identifier of each record</td>
+          </tr>
+          <tr>
+            <td>Top Company</td>
+            <td/>
+            <td/>
+            <td>Company (the root of the company structure)</td>
+          </tr>
+          <tr>
+            <td>Updated</td>
+            <td/>
+            <td/>
+            <td>System timestamp of record modification</td>
           </tr>
         </tbody>
       </table>
